@@ -567,11 +567,11 @@ SELECT id_pedido, SUM(cantidad) as cantidad_total FROM pedido GROUP BY id_pedido
 //Obtener la fecha de inicio del empleado más reciente contratado:
 SELECT MAX(fecha_inicio) as fecha_reciente_contratado FROM empleado;
 
-//sirve para ptener informacion relacionada entre entre clientes y pedidos 
+//sirve para ptener informacion relacionada entre entre productos y pedidos 
 SELECT *
-FROM cliente_pedido
-LEFT JOIN clientes ON cliente_pedido.id_cliente = clientes.id_cliente
-LEFT JOIN pedido ON cliente_pedido.id_pedido = pedido.id_pedido;
+FROM productos_pedidos
+LEFT JOIN clientes ON productos_pedidos.id_pedido = clientes.id_cliente
+LEFT JOIN pedido ON productos_pedidos.id_pedido = pedido.id_pedido;
 
 //CONSULTA LOS CLIENTES QUE NO TENGAN PEDIDO
 
