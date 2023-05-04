@@ -567,6 +567,58 @@ SELECT id_pedido, SUM(cantidad) as cantidad_total FROM pedido GROUP BY id_pedido
 //Obtener la fecha de inicio del empleado más reciente contratado:
 SELECT MAX(fecha_inicio) as fecha_reciente_contratado FROM empleado;
 
+//sirve para ptener informacion relacionada entre entre clientes y pedidos 
+SELECT *
+FROM cliente_pedido
+LEFT JOIN clientes ON cliente_pedido.id_cliente = clientes.id_cliente
+LEFT JOIN pedido ON cliente_pedido.id_pedido = pedido.id_pedido;
+
+//CONSULTA LOS CLIENTES QUE NO TENGAN PEDIDO
+
+SELECT *
+FROM clientes
+LEFT JOIN cliente_pedido
+ON clientes.id_cliente = cliente_pedido.id_cliente
+WHERE cliente_pedido.id_cliente IS NULL;
+
+//todos los clientes asi no tengan pedido
+SELECT *
+FROM clientes
+LEFT JOIN cliente_pedido
+ON clientes.id_cliente = cliente_pedido.id_cliente_pedido;
+
+//los camiones sin ruta establecida 
+
+SELECT *
+FROM camion
+LEFT JOIN ruta
+ON camion.id_camion = ruta.id_camion
+WHERE ruta.id_camion IS NULL;
+
+//todos los camiones sin importar si tienen ruta
+SELECT *
+FROM camion
+LEFT JOIN ruta
+ON camion.id_camion = ruta.id_ruta;
+
+//los camiones que tengan minimo una ruta
+SELECT * FROM camion
+INNER JOIN ruta
+ON camion.id_camion = ruta.id_ruta;
+
+//busca los precios mayores a 9 entre las tablas producto y precio
+SELECT p.id_producto, p.nombre, p.descripcion, pr.precio
+FROM producto p
+JOIN precio pr ON p.id_producto = pr.id_producto
+WHERE pr.precio>9;
+
+//buscar los precios menores a 7 
+SELECT * 
+FROM producto 
+INNER JOIN precio
+ON producto.id_producto = precio.id_producto
+WHERE precio.precio < 7
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
