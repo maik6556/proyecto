@@ -622,6 +622,12 @@ WHERE precio.precio < 7
 //Obtener el nombre de los conductores y la cantidad de rutas que han realizado:
 SELECT e.nombre, COUNT(*) as cantidad_rutas FROM empleado e INNER JOIN ruta r ON e.id_empleado = r.id_conductor GROUP BY e.nombre;
 
+//ver los conductores con un id mayor a 10
+SELECT *
+FROM conductor c
+JOIN conductor ON c.id_conductor = c.id_conductor
+WHERE c.id_conductor>10;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
