@@ -31,7 +31,13 @@ CREATE TABLE `camion` (
   `id_camion` int(11) NOT NULL,
   `capacidad` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
+--nuevo
+CREATE TABLE camion (
+  placa VARCHAR(10) PRIMARY KEY,
+  tipo VARCHAR(255),
+  recorrido VARCHAR(255),
+  capacidad_peso DECIMAL(10,2)
+);
 --
 -- Volcado de datos para la tabla `camion`
 --
@@ -44,6 +50,7 @@ INSERT INTO `camion` (`id_camion`, `capacidad`) VALUES
 (7, 9000);
 
 -- --------------------------------------------------------
+--nuevo
 
 --
 -- Estructura de tabla para la tabla `clientes`
