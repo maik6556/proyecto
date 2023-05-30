@@ -213,7 +213,14 @@ CREATE TABLE `pedido` (
   `id_producto` int(11) DEFAULT NULL,
   `cantidad` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
+--nuevo
+CREATE TABLE pedido (
+  id_pedido INT PRIMARY KEY AUTO_INCREMENT,
+  descripcion_producto VARCHAR(255),
+  fecha_venta DATE,
+  direccion VARCHAR(255),
+  precio DECIMAL(10,2)
+);
 --
 -- Volcado de datos para la tabla `pedido`
 --
@@ -281,6 +288,14 @@ CREATE TABLE `producto` (
   `descripcion` text DEFAULT NULL,
   `precio` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+--nuevo
+CREATE TABLE producto (
+  id_producto INT PRIMARY KEY AUTO_INCREMENT,
+  precio_compra DECIMAL(10,2),
+  categoria VARCHAR(255),
+  proveedor_id INT,
+  FOREIGN KEY (proveedor_id) REFERENCES proveedor(id_proveedor)
+);
 
 --
 -- Volcado de datos para la tabla `producto`
