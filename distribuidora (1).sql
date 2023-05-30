@@ -340,7 +340,12 @@ CREATE TABLE proveedor (
   horario VARCHAR(50)
 ); de datos para la tabla `proveedor`
 --
-
+--nuevo
+CREATE TABLE proveedor (
+  id_proveedor INT PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(50),
+  horario VARCHAR(50)
+);
 INSERT INTO `proveedor` (`id_proveedor`, `nombre`, `telefono`, `email`) VALUES
 (1, 'Proveedor 1', '111-111-1111', 'proveedor1@example.com'),
 (2, 'Proveedor 2', '222-222-2222', 'proveedor2@example.com'),
@@ -452,6 +457,168 @@ INSERT INTO `vendedor` (`id_vendedor`, `nombre`, `telefono`, `email`, `id_sucurs
 --
 -- Índices para tablas volcadas
 --
+--tablas rellenadas
+-- Tabla proveedor
+INSERT INTO proveedor (nombre, horario) VALUES
+('Proveedor 1', 'Horario 1'),
+('Proveedor 2', 'Horario 2'),
+('Proveedor 3', 'Horario 3'),
+('Proveedor 4', 'Horario 4'),
+('Proveedor 5', 'Horario 5'),
+('Proveedor 6', 'Horario 6'),
+('Proveedor 7', 'Horario 7'),
+('Proveedor 8', 'Horario 8'),
+('Proveedor 9', 'Horario 9'),
+('Proveedor 10', 'Horario 10'),
+('Proveedor 11', 'Horario 11'),
+('Proveedor 12', 'Horario 12'),
+('Proveedor 13', 'Horario 13'),
+('Proveedor 14', 'Horario 14'),
+('Proveedor 15', 'Horario 15');
+
+-- Tabla producto
+INSERT INTO producto (precio_compra, categoria, proveedor_id) VALUES
+(10.00, 'Categoría 1', 1),
+(15.00, 'Categoría 2', 2),
+(20.00, 'Categoría 3', 3),
+(25.00, 'Categoría 4', 4),
+(30.00, 'Categoría 5', 5),
+(35.00, 'Categoría 6', 6),
+(40.00, 'Categoría 7', 7),
+(45.00, 'Categoría 8', 8),
+(50.00, 'Categoría 9', 9),
+(55.00, 'Categoría 10', 10),
+(60.00, 'Categoría 11', 11),
+(65.00, 'Categoría 12', 12),
+(70.00, 'Categoría 13', 13),
+(75.00, 'Categoría 14', 14),
+(80.00, 'Categoría 15', 15);
+
+-- Tabla pedido
+INSERT INTO pedido (descripcion_producto, fecha_venta, direccion, precio) VALUES
+('Producto 1', '2023-05-25', 'Dirección 1', 10.00),
+('Producto 2', '2023-05-24', 'Dirección 2', 20.00),
+('Producto 3', '2023-05-23', 'Dirección 3', 30.00),
+('Producto 4', '2023-05-22', 'Dirección 4', 40.00),
+('Producto 5', '2023-05-21', 'Dirección 5', 50.00),
+('Producto 6', '2023-05-20', 'Dirección 6', 60.00),
+('Producto 7', '2023-05-19', 'Dirección 7', 70.00),
+('Producto 8', '2023-05-18', 'Dirección 8', 80.00),
+('Producto 9', '2023-05-17', 'Dirección 9', 90.00),
+('Producto 10', '2023-05-16', 'Dirección 10', 100.00),
+('Producto 11', '2023-05-15', 'Dirección 11', 110.00),
+('Producto 12', '2023-05-14', 'Dirección 12', 120.00),
+('Producto 13', '2023-05-13', 'Dirección 13', 130.00),
+('Producto 14', '2023-05-12', 'Dirección 14', 140.00),
+('Producto 15', '2023-05-11', 'Dirección 15', 150.00);
+
+-- Tabla empleado
+INSERT INTO empleado (conductor, vendedor) VALUES
+(TRUE, FALSE),
+(FALSE, TRUE),
+(TRUE, TRUE),
+(TRUE, FALSE),
+(FALSE, TRUE),
+(TRUE, TRUE),
+(TRUE, FALSE),
+(FALSE, TRUE),
+(TRUE, TRUE),
+(TRUE, FALSE),
+(FALSE, TRUE),
+(TRUE, TRUE),
+(TRUE, FALSE),
+(FALSE, TRUE),
+(TRUE, TRUE);
+
+-- Tabla camion
+INSERT INTO camion (placa, tipo, recorrido, capacidad_peso) VALUES
+('ABC123', 'Tipo 1', 'Recorrido 1', 1000.00),
+('DEF456', 'Tipo 2', 'Recorrido 2', 2000.00),
+('GHI789', 'Tipo 3', 'Recorrido 3', 3000.00),
+('JKL012', 'Tipo 4', 'Recorrido 4', 4000.00),
+('MNO345', 'Tipo 5', 'Recorrido 5', 5000.00),
+('PQR678', 'Tipo 6', 'Recorrido 6', 6000.00),
+('STU901', 'Tipo 7', 'Recorrido 7', 7000.00),
+('VWX234', 'Tipo 8', 'Recorrido 8', 8000.00),
+('YZA567', 'Tipo 9', 'Recorrido 9', 9000.00),
+('BCD890', 'Tipo 10', 'Recorrido 10', 10000.00),
+('EFG123', 'Tipo 11', 'Recorrido 11', 11000.00),
+('HIJ456', 'Tipo 12', 'Recorrido 12', 12000.00),
+('KLM789', 'Tipo 13', 'Recorrido 13', 13000.00),
+('NOP012', 'Tipo 14', 'Recorrido 14', 14000.00),
+('QRS345', 'Tipo 15', 'Recorrido 15', 15000.00);
+
+-- Tabla proveedor_producto
+INSERT INTO proveedor_producto (proveedor_id, producto_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15);
+
+-- Tabla registrando
+INSERT INTO registrando (producto_id, venta_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15);
+
+-- Tabla asigna
+INSERT INTO asigna (empleado_id, pedido_id) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4),
+(5, 5),
+(6, 6),
+(7, 7),
+(8, 8),
+(9, 9),
+(10, 10),
+(11, 11),
+(12, 12),
+(13, 13),
+(14, 14),
+(15, 15);
+
+-- Tabla camion_pedido
+INSERT INTO camion_pedido (placa, pedido_id) VALUES
+('ABC123', 1),
+('DEF456', 2),
+('GHI789', 3),
+('JKL012', 4),
+('MNO345', 5),
+('PQR678', 6),
+('STU901', 7),
+('VWX234', 8),
+('YZA567', 9),
+('BCD890', 10),
+('EFG123', 11),
+('HIJ456', 12),
+('KLM789', 13),
+('NOP012', 14),
+('QRS345', 15);
 
 --
 -- Indices de la tabla `camion`
