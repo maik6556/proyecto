@@ -51,7 +51,22 @@ INSERT INTO `camion` (`id_camion`, `capacidad`) VALUES
 
 -- --------------------------------------------------------
 --nuevo
-
+INSERT INTO camion (placa, tipo, recorrido, capacidad_peso) VALUES
+('ABC123', 'Tipo 1', 'Recorrido 1', 1000.00),
+('DEF456', 'Tipo 2', 'Recorrido 2', 2000.00),
+('GHI789', 'Tipo 3', 'Recorrido 3', 3000.00),
+('JKL012', 'Tipo 4', 'Recorrido 4', 4000.00),
+('MNO345', 'Tipo 5', 'Recorrido 5', 5000.00),
+('PQR678', 'Tipo 6', 'Recorrido 6', 6000.00),
+('STU901', 'Tipo 7', 'Recorrido 7', 7000.00),
+('VWX234', 'Tipo 8', 'Recorrido 8', 8000.00),
+('YZA567', 'Tipo 9', 'Recorrido 9', 9000.00),
+('BCD890', 'Tipo 10', 'Recorrido 10', 10000.00),
+('EFG123', 'Tipo 11', 'Recorrido 11', 11000.00),
+('HIJ456', 'Tipo 12', 'Recorrido 12', 12000.00),
+('KLM789', 'Tipo 13', 'Recorrido 13', 13000.00),
+('NOP012', 'Tipo 14', 'Recorrido 14', 14000.00),
+('QRS345', 'Tipo 15', 'Recorrido 15', 15000.00);
 --
 -- Estructura de tabla para la tabla `clientes`
 --
@@ -86,6 +101,7 @@ CREATE TABLE `cliente_pedido` (
   `id_cliente` int(11) DEFAULT NULL,
   `id_pedido` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+--nuevo
 
 --
 -- Volcado de datos para la tabla `cliente_pedido`
@@ -157,7 +173,12 @@ CREATE TABLE `empleado` (
   `fecha_inicio` date DEFAULT NULL,
   `sueldo` decimal(10,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
+--nuevo
+CREATE TABLE empleado (
+  id_empleado INT PRIMARY KEY AUTO_INCREMENT,
+  conductor BOOLEAN,
+  vendedor BOOLEAN
+);
 --
 -- Volcado de datos para la tabla `empleado`
 --
