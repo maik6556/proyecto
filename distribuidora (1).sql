@@ -289,7 +289,13 @@ CREATE TABLE `proveedor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `proveedor`
+-- Volcado /*Utilizar claves autoincrementales: Para las tablas que tienen claves primarias que no requieren un valor específico, como "proveedor", "producto", "pedido" y "empleado", se puede utilizar el atributo AUTO_INCREMENT en las definiciones de las claves primarias. Esto permitirá que se generen automáticamente valores únicos para las claves primarias sin necesidad de especificarlos manualmente.*/
+
+CREATE TABLE proveedor (
+  id_proveedor INT PRIMARY KEY AUTO_INCREMENT,
+  nombre VARCHAR(50),
+  horario VARCHAR(50)
+); de datos para la tabla `proveedor`
 --
 
 INSERT INTO `proveedor` (`id_proveedor`, `nombre`, `telefono`, `email`) VALUES
